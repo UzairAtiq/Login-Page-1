@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, ArrowRight, Dribbble } from 'lucide-react';
+import { Eye, EyeOff, ArrowRight, Dribbble, Palette } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const { theme, setTheme, currentTheme, themes } = useTheme();
+  const [showThemeMenu, setShowThemeMenu] = useState(false);
   
   const [formData, setFormData] = useState({
     firstName: '',
@@ -97,11 +100,54 @@ const LoginPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#6B6B85] flex items-center justify-center p-4 md:p-8">
+    <div className={`min-h-screen bg-gradient-to-br ${currentTheme.bg} flex items-center justify-center p-4 md:p-8`}>
       {/* Logo in top left */}
       <div className="absolute top-6 left-6 md:top-8 md:left-8 z-50">
         <div className="bg-dark p-3 rounded-xl shadow-lg">
           <Dribbble className="w-6 h-6 text-white" />
+        </div>
+      </div>
+
+      {/* Theme Selector in top right */}
+      <div className="absolute top-6 right-6 md:top-8 md:right-8 z-50">
+        <div className="relative">
+          <button
+            onClick={() => setShowThemeMenu(!showThemeMenu)}
+            className="bg-dark p-3 rounded-xl shadow-lg hover:bg-dark-light transition-all duration-300 transform hover:scale-105"
+            style={{ borderColor: currentTheme.accent, borderWidth: showThemeMenu ? '2px' : '0px' }}
+          >
+            <Palette className="w-6 h-6 text-white" />
+          </button>
+          
+          {showThemeMenu && (
+            <div className="absolute top-full right-0 mt-2 bg-dark rounded-2xl shadow-2xl p-3 min-w-[200px] border border-white/10">
+              <p className="text-white font-bold text-sm mb-3 px-2">Choose Theme</p>
+              <div className="space-y-2">
+                {Object.entries(themes).map(([key, themeData]) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setTheme(key);
+                      setShowThemeMenu(false);
+                    }}
+                    className={`w-full p-2 rounded-lg transition-all duration-300 flex items-center gap-3 ${
+                      theme === key 
+                        ? 'bg-white/20' 
+                        : 'hover:bg-white/10'
+                    }`}
+                  >
+                    <div 
+                      className={`w-8 h-8 rounded-md bg-gradient-to-br ${themeData.primary}`}
+                    />
+                    <span className="text-white font-semibold text-sm">{themeData.name}</span>
+                    {theme === key && (
+                      <div className="ml-auto w-2 h-2 rounded-full bg-white" />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -110,7 +156,7 @@ const LoginPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
           
           {/* Left Panel - Image Section */}
-          <div className="relative bg-gradient-to-br from-primary to-primary-dark p-8 lg:p-12 flex flex-col justify-between overflow-hidden">
+          <div className="relative p-8 lg:p-12 flex flex-col justify-between overflow-hidden" style={{ background: `linear-gradient(to bottom right, ${currentTheme.primarySolid}, ${currentTheme.primaryDark})` }}>
             {/* Background Image */}
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-80"
@@ -118,7 +164,7 @@ const LoginPage = () => {
             />
             
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/40 to-primary-dark/60" />
+            <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom right, ${currentTheme.primarySolid}99, ${currentTheme.primarySolid}66, ${currentTheme.primaryDark}99)` }} />
 
             {/* Content */}
             <div className="relative z-10">
@@ -321,7 +367,11 @@ const LoginPage = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-black py-4 px-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl hover:shadow-primary/50"
+                  className="w-full text-white font-black py-4 px-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                  style={{ 
+                    background: `linear-gradient(to right, ${currentTheme.primarySolid}, ${currentTheme.primaryDark})`,
+                    boxShadow: `0 10px 25px ${currentTheme.accent}33`
+                  }}
                 >
                   {isLoading ? (
                     <span className="flex items-center justify-center gap-2">

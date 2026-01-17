@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, User, Mail, Lock, LogOut, Edit, Settings, X } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const WelcomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const userData = location.state?.userData;
+  const { theme, setTheme, currentTheme, themes } = useTheme();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
-  const [theme, setTheme] = useState('purple'); // default theme
   
   const [editedData, setEditedData] = useState({
     firstName: userData?.firstName || '',
@@ -38,45 +39,7 @@ const WelcomePage = () => {
     setShowEditModal(false);
   };
 
-  const themes = {
-    purple: {
-      bg: 'from-[#6B6B85] via-[#5A5A70] to-[#4A4A60]',
-      primary: 'from-[#7C6FDB] to-[#6B5FCA]',
-      accent: '#7C6FDB',
-      shadow: 'primary/20',
-      name: 'Purple'
-    },
-    red: {
-      bg: 'from-[#8B5A5A] via-[#7A4949] to-[#6A3838]',
-      primary: 'from-[#E74C3C] to-[#C0392B]',
-      accent: '#E74C3C',
-      shadow: 'red-500/20',
-      name: 'Red'
-    },
-    green: {
-      bg: 'from-[#2C5F4E] via-[#234D3E] to-[#1A3B2E]',
-      primary: 'from-[#27AE60] to-[#229954]',
-      accent: '#27AE60',
-      shadow: 'green-500/20',
-      name: 'Dark Green'
-    },
-    orange: {
-      bg: 'from-[#8B6F47] via-[#7A5E36] to-[#6A4E26]',
-      primary: 'from-[#E67E22] to-[#CA6F1E]',
-      accent: '#E67E22',
-      shadow: 'orange-500/20',
-      name: 'Orange'
-    },
-    dark: {
-      bg: 'from-[#1a1a1a] via-[#0f0f0f] to-[#000000]',
-      primary: 'from-[#404040] to-[#2a2a2a]',
-      accent: '#404040',
-      shadow: 'gray-700/20',
-      name: 'Dark Mode'
-    }
-  };
 
-  const currentTheme = themes[theme];
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${currentTheme.bg} flex flex-col items-center justify-center p-4 md:p-8`}>
