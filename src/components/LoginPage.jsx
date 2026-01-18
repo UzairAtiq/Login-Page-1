@@ -101,13 +101,6 @@ const LoginPage = () => {
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${currentTheme.bg} flex items-center justify-center p-4 md:p-8`}>
-      {/* Logo in top left */}
-      <div className="absolute top-6 left-6 md:top-8 md:left-8 z-50">
-        <div className="bg-dark p-3 rounded-xl shadow-lg">
-          <Dribbble className="w-6 h-6 text-white" />
-        </div>
-      </div>
-
       {/* Theme Selector in top right */}
       <div className="absolute top-6 right-6 md:top-8 md:right-8 z-50">
         <div className="relative">
