@@ -154,7 +154,7 @@ const WelcomePage = () => {
               className="bg-dark-lighter hover:bg-dark-lighter/80 text-white font-bold py-4 px-6 rounded-xl border border-gray-700 hover:border-white/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
             >
               <Settings className="w-5 h-5" />
-              Account Settings
+              Website Settings
             </button>
           </div>
         </div>
