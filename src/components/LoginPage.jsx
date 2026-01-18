@@ -218,7 +218,7 @@ const LoginPage = () => {
           </div>
 
           {/* Right Panel - Form Section */}
-          <div className="bg-dark-light p-8 lg:p-12 flex flex-col justify-center">
+          <div className="p-8 lg:p-12 flex flex-col justify-center transition-all duration-500" style={{ backgroundColor: `${currentTheme.primarySolid}15` }}>
             <div className="max-w-md mx-auto w-full">
               {/* Header */}
               <div className="mb-8">
