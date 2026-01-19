@@ -1,51 +1,72 @@
 # Login Page
 
-A premium, modern login/signup page built with React and Vite. Features smooth animations, toast notifications, password strength validation, and stunning glassmorphism effects.
+A modern login and registration page built with React and Vite. Includes form validation, theme customization, and user dashboard.
 
-## Tech Stack
+## Technology Stack
 
-- React 18 with Vite
-- React Router for navigation
-- Framer Motion for animations
-- Tailwind CSS for styling
-- Lucide React for icons
+- React 18
+- Vite
+- React Router
+- Framer Motion
+- Tailwind CSS
+- Lucide React
 
-## ✨ Features
+## Features
 
-### Authentication & Validation
-- User registration with real-time form validation
-- Password strength indicator with visual feedback
-- Email validation
+### Authentication
+- User registration form
+- Real-time form validation
+- Email format validation
+- Password strength indicator
 - Password visibility toggle
-- Terms & conditions acceptance
+- Terms and conditions acceptance
 
-### Visual Effects & UX
-- **Smooth Page Transitions** - Fade/scale animations between pages
-- **Toast Notifications** - Success/error/info messages with auto-dismiss
-- **Loading Skeletons** - Shimmer effects while content loads
-- **Glassmorphism Effects** - Premium frosted glass UI throughout
-- **Animated Background** - Dynamic gradient overlays
+### User Interface
+- Page transition animations
+- Toast notifications for user feedback
+- Loading skeleton screens
+- Glassmorphism design elements
+- Input field focus glow effects
+- 3D card hover animations
+- Gradient backgrounds
 
-### Theming & Personalization
-- 5 color themes (Purple, Red, Green, Orange, Dark Mode)
-- Theme selector with live preview
-- Custom spiritual typography background on welcome page
-- Personalized welcome dashboard
+### Theming
+- Five color themes available
+- Theme selector with preview
+- Custom background imagery
+- Persistent theme selection
 
-### Dashboard Features
-- User profile display with masked password
-- Edit profile modal with smooth animations
+### User Dashboard
+- Profile information display
+- Password masking
+- Profile editing modal
 - Theme settings modal
-- Logout with confirmation toast
-- Responsive design for all devices
+- Logout functionality
 
-## 🚀 Quick Start
+### Additional Features
+- Fully responsive layout
+- Mobile-optimized interface
+- Keyboard navigation support
+- Screen reader compatibility
+
+## Installation
 
 ```bash
 npm install
+```
+
+## Development
+
+```bash
 npm run dev
 ```
 
-## 📱 Responsive Design
+## Build
 
-Fully optimized for desktop, tablet, and mobile devices with adaptive layouts and touch-friendly interactions.
+```bash
+npm run build
+```
+
+## Browser Support
+
+Compatible with modern browsers including Chrome, Firefox, Safari, and Edge.
