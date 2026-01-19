@@ -22,7 +22,8 @@ const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [agreeToTerms, setAgreeToTerms] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(2);
+  const [isLogin, setIsLogin] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Validation functions
   const validateEmail = (email) => {
@@ -174,17 +175,21 @@ const LoginPage = () => {
               {/* Header */}
               <div className="mb-8">
                 <h1 className={`${currentTheme.textPrimary} text-3xl md:text-4xl font-black mb-2`}>
-                  Create an account
+                  {isLogin ? 'Welcome back' : 'Create an account'}
                 </h1>
                 <p className={`${currentTheme.textSecondary} text-sm font-medium`}>
-                  Already have an account?{' '}
-                  <a 
-                    href="#" 
-                    className="text-primary hover:text-primary-light transition-colors underline"
+                  {isLogin ? "Don't have an account? " : "Already have an account? "}
+                  <button 
+                    type="button"
+                    onClick={() => {
+                      setIsLogin(!isLogin);
+                      setErrors({});
+                    }}
+                    className="text-primary hover:text-primary-light transition-colors underline ml-1"
                     style={{ color: currentTheme.accent }}
                   >
-                    Log in
-                  </a>
+                    {isLogin ? 'Sign up' : 'Log in'}
+                  </button>
                 </p>
               </div>
 
