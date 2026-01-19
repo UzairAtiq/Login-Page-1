@@ -174,7 +174,7 @@ const LoginPage = () => {
             </div>
 
             {/* Tagline */}
-            <div className="relative z-10 text-center">
+            <div className="relative z-10 text-center mt-20">
               <h2 className="text-white text-3xl md:text-4xl font-light mb-8 transition-all duration-500">
                 {slides[currentSlide]}
               </h2>
