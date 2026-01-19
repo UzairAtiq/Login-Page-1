@@ -110,7 +110,11 @@ const LoginPage = () => {
     }
   };
 
-  const slides = [
+  const slides = isLogin ? [
+    "Welcome Back to Your Creative Space",
+    "Logging in to Build Your Dreams",
+    "Your Journey Continues Here"
+  ] : [
     "Every Picture Tells a Story",
     "Moments That Matter",
     "Capturing Moments, Creating Memories"
