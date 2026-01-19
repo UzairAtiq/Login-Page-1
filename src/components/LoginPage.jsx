@@ -161,20 +161,7 @@ const LoginPage = () => {
 
             {/* Content */}
             <div className="relative z-10">
-              {/* Logo */}
-              <div className="flex items-center gap-2 mb-8">
-                <svg 
-                  viewBox="0 0 100 40" 
-                  className="w-20 h-8 text-white"
-                  fill="currentColor"
-                >
-                  <path d="M10 5 L20 30 L30 5 M30 5 L30 30 M40 5 Q50 5 50 15 Q50 25 40 25 L45 30 M60 5 L70 30 L80 5" 
-                    stroke="currentColor" 
-                    strokeWidth="3" 
-                    fill="none"
-                  />
-                </svg>
-              </div>
+
 
               {/* Back to website link */}
               <button 
