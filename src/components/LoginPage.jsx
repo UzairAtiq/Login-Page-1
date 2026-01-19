@@ -300,6 +300,18 @@ const LoginPage = () => {
                       <Eye className="w-5 h-5" />
                     )}
                   </button>
+                  {isLogin && (
+                    <div className="flex justify-end mt-1">
+                      <button 
+                        type="button" 
+                        onClick={() => showToast('Feature coming soon!', 'info')}
+                        className="text-xs font-semibold hover:underline transition-all"
+                        style={{ color: currentTheme.accent }}
+                      >
+                        Forgot password?
+                      </button>
+                    </div>
+                  )}
                   {errors.password && (
                     <p className="text-red-500 text-xs mt-1">{errors.password}</p>
                   )}
