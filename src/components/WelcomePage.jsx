@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Eye, EyeOff, User, Mail, Lock, LogOut, Edit, Settings, X } from 'lucide-react';
+import { Eye, EyeOff, User, Mail, Lock, LogOut, Edit, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useToast } from '../context/ToastContext';
 import { WelcomePageSkeleton } from './LoadingSkeleton';
@@ -11,13 +11,12 @@ const WelcomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const userData = location.state?.userData;
-  const { theme, setTheme, currentTheme, themes } = useTheme();
+  const { toggleTheme, currentTheme } = useTheme();
   const { showToast } = useToast();
   const [isLoading, setIsLoading] = useState(true);
 
   const [showPassword, setShowPassword] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [showSettingsModal, setShowSettingsModal] = useState(false);
   
   const [editedData, setEditedData] = useState({
     firstName: userData?.firstName || '',
@@ -186,11 +185,20 @@ const WelcomePage = () => {
               Edit Profile
             </button>
             <button 
-              onClick={() => setShowSettingsModal(true)}
+              onClick={toggleTheme}
               className="bg-dark-lighter hover:bg-dark-lighter/80 text-white font-bold py-4 px-6 rounded-xl border border-gray-700 hover:border-white/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
             >
-              <Settings className="w-5 h-5" />
-              Website Settings
+              {currentTheme.isDark ? (
+                <>
+                  <Sun className="w-5 h-5" />
+                  Switch to Light
+                </>
+              ) : (
+                <>
+                  <Moon className="w-5 h-5" />
+                  Switch to Dark
+                </>
+              )}
             </button>
           </div>
         </div>
@@ -258,60 +266,6 @@ const WelcomePage = () => {
               >
                 Cancel
               </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Settings Modal */}
-      {showSettingsModal && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
-          <div className="bg-dark/95 backdrop-blur-xl rounded-3xl p-8 max-w-md w-full border border-white/20 shadow-2xl transform animate-in zoom-in duration-300">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-black text-white flex items-center gap-2">
-                <Settings className="w-6 h-6" style={{ color: currentTheme.accent }} />
-                Theme Settings
-              </h2>
-              <button
-                onClick={() => setShowSettingsModal(false)}
-                className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            
-            <p className="text-gray-400 mb-6 font-medium">Choose your preferred color theme</p>
-            
-            <div className="space-y-3">
-              {Object.entries(themes).map(([key, themeData]) => (
-                <button
-                  key={key}
-                  onClick={() => {
-                    setTheme(key);
-                    setTimeout(() => setShowSettingsModal(false), 500);
-                  }}
-                  className={`w-full p-4 rounded-xl border-2 transition-all duration-300 transform hover:scale-105 ${
-                    theme === key 
-                      ? 'border-white/50 bg-white/10' 
-                      : 'border-gray-700 bg-dark-lighter hover:border-white/20'
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <div 
-                      className={`w-12 h-12 rounded-lg bg-gradient-to-br ${themeData.primary}`}
-                    />
-                    <div className="flex-1 text-left">
-                      <p className="text-white font-bold">{themeData.name}</p>
-                      <p className="text-gray-400 text-sm">Click to apply</p>
-                    </div>
-                    {theme === key && (
-                      <div className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-white" />
-                      </div>
-                    )}
-                  </div>
-                </button>
-              ))}
             </div>
           </div>
         </div>

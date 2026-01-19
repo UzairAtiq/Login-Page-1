@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Eye, EyeOff, ArrowRight, Dribbble, Palette } from 'lucide-react';
+import { Eye, EyeOff, ArrowRight, Moon, Sun } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useToast } from '../context/ToastContext';
 import PasswordStrengthIndicator from './PasswordStrengthIndicator';
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { theme, setTheme, currentTheme, themes } = useTheme();
+  const { toggleTheme, currentTheme } = useTheme();
   const { showToast } = useToast();
-  const [showThemeMenu, setShowThemeMenu] = useState(false);
   
   const [formData, setFormData] = useState({
     firstName: '',
@@ -116,47 +115,19 @@ const LoginPage = () => {
       transition={{ duration: 0.5 }}
       className={`min-h-screen bg-gradient-to-br ${currentTheme.bg} flex items-center justify-center p-4 md:p-8`}
     >
-      {/* Theme Selector in top right */}
+      {/* Theme Toggle in top right */}
       <div className="absolute top-6 right-6 md:top-8 md:right-8 z-50">
-        <div className="relative">
-          <button
-            onClick={() => setShowThemeMenu(!showThemeMenu)}
-            className="bg-white/10 backdrop-blur-md p-3 rounded-xl shadow-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105 border border-white/20"
-            style={{ borderColor: showThemeMenu ? currentTheme.accent : undefined }}
-          >
-            <Palette className="w-6 h-6 text-white" />
-          </button>
-          
-          {showThemeMenu && (
-            <div className="absolute top-full right-0 mt-2 bg-dark/95 backdrop-blur-xl rounded-2xl shadow-2xl p-3 min-w-[200px] border border-white/20">
-              <p className="text-white font-bold text-sm mb-3 px-2">Choose Theme</p>
-              <div className="space-y-2">
-                {Object.entries(themes).map(([key, themeData]) => (
-                  <button
-                    key={key}
-                    onClick={() => {
-                      setTheme(key);
-                      setShowThemeMenu(false);
-                    }}
-                    className={`w-full p-2 rounded-lg transition-all duration-300 flex items-center gap-3 ${
-                      theme === key 
-                        ? 'bg-white/20' 
-                        : 'hover:bg-white/10'
-                    }`}
-                  >
-                    <div 
-                      className={`w-8 h-8 rounded-md bg-gradient-to-br ${themeData.primary}`}
-                    />
-                    <span className="text-white font-semibold text-sm">{themeData.name}</span>
-                    {theme === key && (
-                      <div className="ml-auto w-2 h-2 rounded-full bg-white" />
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
+        <button
+          onClick={toggleTheme}
+          className="bg-white/10 backdrop-blur-md p-3 rounded-xl shadow-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105 border border-white/20"
+          aria-label="Toggle theme"
+        >
+          {currentTheme.isDark ? (
+            <Sun className="w-6 h-6 text-white" />
+          ) : (
+            <Moon className="w-6 h-6 text-gray-800" />
           )}
-        </div>
+        </button>
       </div>
 
       {/* Main Container */}
