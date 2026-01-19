@@ -169,18 +169,19 @@ const LoginPage = () => {
           </div>
 
           {/* Right Panel - Form Section */}
-          <div className="p-8 lg:p-12 flex flex-col justify-center transition-all duration-500" style={{ backgroundColor: `${currentTheme.primarySolid}15` }}>
+          <div className={`p-8 lg:p-12 flex flex-col justify-center transition-all duration-500 ${!currentTheme.isDark ? 'bg-white' : ''}`} style={{ backgroundColor: currentTheme.isDark ? `${currentTheme.primarySolid}15` : undefined }}>
             <div className="max-w-md mx-auto w-full">
               {/* Header */}
               <div className="mb-8">
-                <h1 className="text-white text-3xl md:text-4xl font-black mb-2">
+                <h1 className={`${currentTheme.textPrimary} text-3xl md:text-4xl font-black mb-2`}>
                   Create an account
                 </h1>
-                <p className="text-gray-400 text-sm font-medium">
+                <p className={`${currentTheme.textSecondary} text-sm font-medium`}>
                   Already have an account?{' '}
                   <a 
                     href="#" 
                     className="text-primary hover:text-primary-light transition-colors underline"
+                    style={{ color: currentTheme.accent }}
                   >
                     Log in
                   </a>
@@ -198,11 +199,11 @@ const LoginPage = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder="First name"
-                      className={`input-glow w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                      className={`input-glow w-full ${currentTheme.inputBg} ${currentTheme.inputText} placeholder-gray-500 px-4 py-3 rounded-lg border ${
                         errors.firstName 
                           ? 'border-red-500' 
-                          : 'border-gray-700'
-                      } focus:border-primary focus:outline-none transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
+                          : currentTheme.inputBorder
+                      } focus:border-primary focus:outline-none transition-all duration-300 font-semibold`}
                       aria-label="First name"
                       aria-invalid={errors.firstName ? 'true' : 'false'}
                     />
@@ -217,11 +218,11 @@ const LoginPage = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       placeholder="Last name"
-                      className={`input-glow w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                      className={`input-glow w-full ${currentTheme.inputBg} ${currentTheme.inputText} placeholder-gray-500 px-4 py-3 rounded-lg border ${
                         errors.lastName 
                           ? 'border-red-500' 
-                          : 'border-gray-700'
-                      } focus:border-primary focus:outline-none transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
+                          : currentTheme.inputBorder
+                      } focus:border-primary focus:outline-none transition-all duration-300 font-semibold`}
                       aria-label="Last name"
                       aria-invalid={errors.lastName ? 'true' : 'false'}
                     />
@@ -239,11 +240,11 @@ const LoginPage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Email"
-                    className={`input-glow w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                    className={`input-glow w-full ${currentTheme.inputBg} ${currentTheme.inputText} placeholder-gray-500 px-4 py-3 rounded-lg border ${
                       errors.email 
                         ? 'border-red-500' 
-                        : 'border-gray-700'
-                    } focus:border-primary focus:outline-none transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
+                        : currentTheme.inputBorder
+                    } focus:border-primary focus:outline-none transition-all duration-300 font-semibold`}
                     aria-label="Email address"
                     aria-invalid={errors.email ? 'true' : 'false'}
                   />
@@ -260,11 +261,11 @@ const LoginPage = () => {
                     value={formData.password}
                     onChange={handleInputChange}
                     placeholder="Enter your password"
-                    className={`input-glow w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                    className={`input-glow w-full ${currentTheme.inputBg} ${currentTheme.inputText} placeholder-gray-500 px-4 py-3 rounded-lg border ${
                       errors.password 
                         ? 'border-red-500' 
-                        : 'border-gray-700'
-                    } focus:border-primary focus:outline-none transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 pr-12 font-semibold`}
+                        : currentTheme.inputBorder
+                    } focus:border-primary focus:outline-none transition-all duration-300 pr-12 font-semibold`}
                     aria-label="Password"
                     aria-invalid={errors.password ? 'true' : 'false'}
                   />
@@ -303,11 +304,12 @@ const LoginPage = () => {
                     className="mt-1 w-4 h-4 rounded border-gray-700 bg-dark-lighter text-primary focus:ring-2 focus:ring-primary/50 focus:ring-offset-0 cursor-pointer"
                     aria-label="Agree to terms and conditions"
                   />
-                  <label htmlFor="terms" className="text-gray-400 text-sm cursor-pointer font-medium">
+                  <label htmlFor="terms" className={`${currentTheme.textSecondary} text-sm cursor-pointer font-medium`}>
                     I agree to the{' '}
                     <a 
                       href="#" 
-                      className="text-primary hover:text-primary-light transition-colors underline"
+                      className="transition-colors underline"
+                      style={{ color: currentTheme.accent }}
                     >
                       Terms & Conditions
                     </a>
@@ -358,7 +360,7 @@ const LoginPage = () => {
                     <div className="w-full border-t border-gray-700" />
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-4 bg-dark-light text-gray-400">Or register with</span>
+                    <span className={`px-4 ${!currentTheme.isDark ? 'bg-white' : 'bg-dark-light'} ${currentTheme.textSecondary}`}>Or register with</span>
                   </div>
                 </div>
 

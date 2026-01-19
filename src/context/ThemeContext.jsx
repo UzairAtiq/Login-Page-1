@@ -19,7 +19,15 @@ export const themes = {
     accent: '#7C6FDB',
     shadow: 'primary/20',
     name: 'Light',
-    isDark: false
+    isDark: false,
+    // Light mode specific colors
+    textPrimary: 'text-gray-900',
+    textSecondary: 'text-gray-600',
+    cardBg: 'bg-white',
+    cardBorder: 'border-gray-200',
+    inputBg: 'bg-gray-50',
+    inputBorder: 'border-gray-300',
+    inputText: 'text-gray-900'
   },
   dark: {
     bg: 'from-[#6B6B85] via-[#5A5A70] to-[#4A4A60]',
@@ -29,7 +37,15 @@ export const themes = {
     accent: '#7C6FDB',
     shadow: 'primary/20',
     name: 'Dark',
-    isDark: true
+    isDark: true,
+    // Dark mode specific colors
+    textPrimary: 'text-white',
+    textSecondary: 'text-gray-400',
+    cardBg: 'bg-dark/90',
+    cardBorder: 'border-white/10',
+    inputBg: 'bg-dark-lighter',
+    inputBorder: 'border-gray-700',
+    inputText: 'text-white'
   }
 };
 
