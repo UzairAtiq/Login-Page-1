@@ -301,37 +301,41 @@ const LoginPage = () => {
                   )}
                 </div>
                 
-                {/* Password Strength Indicator */}
-                <PasswordStrengthIndicator password={formData.password} />
+                {/* Password Strength Indicator - Only for Sign Up */}
+                {!isLogin && <PasswordStrengthIndicator password={formData.password} />}
 
-                {/* Terms Checkbox */}
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="terms"
-                    checked={agreeToTerms}
-                    onChange={(e) => {
-                      setAgreeToTerms(e.target.checked);
-                      if (errors.terms) {
-                        setErrors(prev => ({ ...prev, terms: '' }));
-                      }
-                    }}
-                    className={`mt-1 w-4 h-4 rounded ${currentTheme.inputBorder} ${currentTheme.inputBg} text-primary focus:ring-2 focus:ring-primary/50 focus:ring-offset-0 cursor-pointer`}
-                    aria-label="Agree to terms and conditions"
-                  />
-                  <label htmlFor="terms" className={`${currentTheme.textSecondary} text-sm cursor-pointer font-medium`}>
-                    I agree to the{' '}
-                    <a 
-                      href="#" 
-                      className="transition-colors underline"
-                      style={{ color: currentTheme.accent }}
-                    >
-                      Terms & Conditions
-                    </a>
-                  </label>
-                </div>
-                {errors.terms && (
-                  <p className="text-red-500 text-xs">{errors.terms}</p>
+                {/* Terms Checkbox - Only for Sign Up */}
+                {!isLogin && (
+                  <>
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        id="terms"
+                        checked={agreeToTerms}
+                        onChange={(e) => {
+                          setAgreeToTerms(e.target.checked);
+                          if (errors.terms) {
+                            setErrors(prev => ({ ...prev, terms: '' }));
+                          }
+                        }}
+                        className={`mt-1 w-4 h-4 rounded ${currentTheme.inputBorder} ${currentTheme.inputBg} text-primary focus:ring-2 focus:ring-primary/50 focus:ring-offset-0 cursor-pointer`}
+                        aria-label="Agree to terms and conditions"
+                      />
+                      <label htmlFor="terms" className={`${currentTheme.textSecondary} text-sm cursor-pointer font-medium`}>
+                        I agree to the{' '}
+                        <a 
+                          href="#" 
+                          className="transition-colors underline"
+                          style={{ color: currentTheme.accent }}
+                        >
+                          Terms & Conditions
+                        </a>
+                      </label>
+                    </div>
+                    {errors.terms && (
+                      <p className="text-red-500 text-xs">{errors.terms}</p>
+                    )}
+                  </>
                 )}
 
                 {/* Submit Button */}
@@ -362,10 +366,10 @@ const LoginPage = () => {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         />
                       </svg>
-                      Creating account...
+                      {isLogin ? 'Signing in...' : 'Creating account...'}
                     </span>
                   ) : (
-                    'Create account'
+                    isLogin ? 'Log in' : 'Create account'
                   )}
                 </button>
 
