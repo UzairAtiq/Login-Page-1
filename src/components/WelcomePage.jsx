@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, User, Mail, Lock, LogOut, Edit, Settings, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import backgroundImage from '../assets/New Message Image.jpg';
 
 const WelcomePage = () => {
   const location = useLocation();
@@ -42,9 +43,16 @@ const WelcomePage = () => {
 
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${currentTheme.bg} flex flex-col items-center justify-center p-4 md:p-8`}>
+    <div className="min-h-screen relative flex flex-col items-center justify-center p-4 md:p-8">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      />
+      <div className="absolute inset-0 bg-black/70" />
+      
       {/* Logout Button - Centered at top */}
-      <div className="w-full max-w-2xl mb-6 flex justify-center">
+      <div className="w-full max-w-2xl mb-6 flex justify-center relative z-10">
         <button
           onClick={handleLogout}
           className={`flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-bold`}
@@ -61,7 +69,7 @@ const WelcomePage = () => {
         <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-${currentTheme.shadow} rounded-full blur-3xl animate-pulse delay-500`} style={{ backgroundColor: `${currentTheme.accent}1A` }} />
       </div>
 
-      <div className="relative w-full max-w-2xl">
+      <div className="relative z-10 w-full max-w-2xl">
         {/* Main Card */}
         <div className="bg-dark/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border border-white/10">
           {/* Welcome Header */}
