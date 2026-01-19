@@ -16,3 +16,36 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }
+
+/* Input Focus Glow Effect */
+.input-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(124, 111, 219, 0.1),
+              0 0 20px rgba(124, 111, 219, 0.3),
+              0 0 40px rgba(124, 111, 219, 0.1);
+  border-color: rgba(124, 111, 219, 0.8) !important;
+}
+
+/* Card Hover Tilt Effect */
+.card-tilt {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
+}
+
+/* Welcome Page Card Tilt */
+.welcome-card-tilt {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.welcome-card-tilt:hover {
+  transform: perspective(1000px) rotateX(1deg) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}

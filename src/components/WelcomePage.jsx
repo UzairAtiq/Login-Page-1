@@ -99,7 +99,7 @@ const WelcomePage = () => {
 
       <div className="relative z-10 w-full max-w-2xl">
         {/* Main Card */}
-        <div className="bg-dark/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border border-white/10">
+        <div className="card-tilt bg-dark/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border border-white/10">
           {/* Welcome Header */}
           <div className="text-center mb-12">
             <div className={`inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br ${currentTheme.primary} rounded-full mb-6 shadow-lg transform hover:scale-110 transition-transform duration-300`}>
@@ -116,7 +116,7 @@ const WelcomePage = () => {
           {/* User Details Cards */}
           <div className="space-y-4">
             {/* Full Name Card */}
-            <div className="bg-dark-lighter/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-white/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg group">
+            <div className="welcome-card-tilt bg-dark-lighter/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-white/20 transition-all duration-300 group">
               <div className="flex items-center gap-4">
                 <div className={`flex items-center justify-center w-12 h-12 rounded-xl group-hover:opacity-80 transition-colors`} style={{ backgroundColor: `${currentTheme.accent}33` }}>
                   <User className="w-6 h-6" style={{ color: currentTheme.accent }} />
@@ -131,7 +131,7 @@ const WelcomePage = () => {
             </div>
 
             {/* Email Card */}
-            <div className="bg-dark-lighter/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-white/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg group">
+            <div className="welcome-card-tilt bg-dark-lighter/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-white/20 transition-all duration-300 group">
               <div className="flex items-center gap-4">
                 <div className={`flex items-center justify-center w-12 h-12 rounded-xl group-hover:opacity-80 transition-colors`} style={{ backgroundColor: `${currentTheme.accent}33` }}>
                   <Mail className="w-6 h-6" style={{ color: currentTheme.accent }} />
@@ -146,7 +146,7 @@ const WelcomePage = () => {
             </div>
 
             {/* Password Card */}
-            <div className="bg-dark-lighter/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-white/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg group">
+            <div className="welcome-card-tilt bg-dark-lighter/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-white/20 transition-all duration-300 group">
               <div className="flex items-center gap-4">
                 <div className={`flex items-center justify-center w-12 h-12 rounded-xl group-hover:opacity-80 transition-colors`} style={{ backgroundColor: `${currentTheme.accent}33` }}>
                   <Lock className="w-6 h-6" style={{ color: currentTheme.accent }} />

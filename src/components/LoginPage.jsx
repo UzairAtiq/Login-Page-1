@@ -160,7 +160,7 @@ const LoginPage = () => {
       </div>
 
       {/* Main Container */}
-      <div className="w-full max-w-6xl bg-dark/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-white/10">
+      <div className="card-tilt w-full max-w-6xl bg-dark/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-white/10">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
           
           {/* Left Panel - Image Section */}
@@ -227,11 +227,11 @@ const LoginPage = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder="First name"
-                      className={`w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                      className={`input-glow w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
                         errors.firstName 
                           ? 'border-red-500' 
                           : 'border-gray-700'
-                      } focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
+                      } focus:border-primary focus:outline-none transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
                       aria-label="First name"
                       aria-invalid={errors.firstName ? 'true' : 'false'}
                     />
@@ -246,11 +246,11 @@ const LoginPage = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       placeholder="Last name"
-                      className={`w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                      className={`input-glow w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
                         errors.lastName 
                           ? 'border-red-500' 
                           : 'border-gray-700'
-                      } focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
+                      } focus:border-primary focus:outline-none transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
                       aria-label="Last name"
                       aria-invalid={errors.lastName ? 'true' : 'false'}
                     />
@@ -268,11 +268,11 @@ const LoginPage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Email"
-                    className={`w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                    className={`input-glow w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
                       errors.email 
                         ? 'border-red-500' 
                         : 'border-gray-700'
-                    } focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
+                    } focus:border-primary focus:outline-none transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 font-semibold`}
                     aria-label="Email address"
                     aria-invalid={errors.email ? 'true' : 'false'}
                   />
@@ -289,11 +289,11 @@ const LoginPage = () => {
                     value={formData.password}
                     onChange={handleInputChange}
                     placeholder="Enter your password"
-                    className={`w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                    className={`input-glow w-full bg-dark-lighter text-white placeholder-gray-500 px-4 py-3 rounded-lg border ${
                       errors.password 
                         ? 'border-red-500' 
                         : 'border-gray-700'
-                    } focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 pr-12 font-semibold`}
+                    } focus:border-primary focus:outline-none transition-all duration-300 hover:bg-dark-lighter/80 hover:border-gray-600 pr-12 font-semibold`}
                     aria-label="Password"
                     aria-invalid={errors.password ? 'true' : 'false'}
                   />
