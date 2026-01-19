@@ -1,6 +1,6 @@
 # Login Page
 
-A modern login and registration page built with React and Vite. Includes form validation, theme customization, and user dashboard.
+A modern login and registration page built with React and Vite. Includes form validation, dark/light mode toggle, and user dashboard.
 
 ## Technology Stack
 
@@ -13,60 +13,69 @@ A modern login and registration page built with React and Vite. Includes form va
 
 ## Features
 
-### Authentication
-- User registration form
-- Real-time form validation
-- Email format validation
+- User registration with real-time validation
 - Password strength indicator
-- Password visibility toggle
-- Terms and conditions acceptance
-
-### User Interface
+- Dark and light mode toggle
 - Page transition animations
-- Toast notifications for user feedback
+- Toast notifications
 - Loading skeleton screens
-- Glassmorphism design elements
-- Input field focus glow effects
+- Glassmorphism UI design
+- Input focus glow effects
 - 3D card hover animations
-- Gradient backgrounds
-
-### Theming
-- Five color themes available
-- Theme selector with preview
-- Custom background imagery
-- Persistent theme selection
-
-### User Dashboard
-- Profile information display
-- Password masking
-- Profile editing modal
-- Theme settings modal
-- Logout functionality
-
-### Additional Features
+- Profile editing
 - Fully responsive layout
-- Mobile-optimized interface
-- Keyboard navigation support
-- Screen reader compatibility
 
-## Installation
+## Setup
 
+### Prerequisites
+
+- Node.js (version 16 or higher)
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd Login-Page-1
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-## Development
+### Development
 
+Start the development server:
 ```bash
 npm run dev
 ```
 
-## Build
+The application will open at `http://localhost:5173` (or another port if 5173 is in use).
 
+### Build
+
+Create a production build:
 ```bash
 npm run build
 ```
 
+Preview the production build:
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/       # React components
+├── context/          # Context providers (Theme, Toast)
+├── assets/           # Static assets
+└── index.css         # Global styles
+```
+
 ## Browser Support
 
-Compatible with modern browsers including Chrome, Firefox, Safari, and Edge.
+Compatible with Chrome, Firefox, Safari, and Edge.
