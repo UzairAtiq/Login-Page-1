@@ -195,47 +195,49 @@ const LoginPage = () => {
 
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Name Fields */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      placeholder="First name"
-                      className={`input-glow w-full ${currentTheme.inputBg} ${currentTheme.inputText} placeholder-gray-500 px-4 py-3 rounded-lg border ${
-                        errors.firstName 
-                          ? 'border-red-500' 
-                          : currentTheme.inputBorder
-                      } focus:border-primary focus:outline-none transition-all duration-300 font-semibold`}
-                      aria-label="First name"
-                      aria-invalid={errors.firstName ? 'true' : 'false'}
-                    />
-                    {errors.firstName && (
-                      <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
-                    )}
+                {/* Name Fields - Only for Sign Up */}
+                {!isLogin && (
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        placeholder="First name"
+                        className={`input-glow w-full ${currentTheme.inputBg} ${currentTheme.inputText} placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                          errors.firstName 
+                            ? 'border-red-500' 
+                            : currentTheme.inputBorder
+                        } focus:border-primary focus:outline-none transition-all duration-300 font-semibold`}
+                        aria-label="First name"
+                        aria-invalid={errors.firstName ? 'true' : 'false'}
+                      />
+                      {errors.firstName && (
+                        <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+                      )}
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        placeholder="Last name"
+                        className={`input-glow w-full ${currentTheme.inputBg} ${currentTheme.inputText} placeholder-gray-500 px-4 py-3 rounded-lg border ${
+                          errors.lastName 
+                            ? 'border-red-500' 
+                            : currentTheme.inputBorder
+                        } focus:border-primary focus:outline-none transition-all duration-300 font-semibold`}
+                        aria-label="Last name"
+                        aria-invalid={errors.lastName ? 'true' : 'false'}
+                      />
+                      {errors.lastName && (
+                        <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      placeholder="Last name"
-                      className={`input-glow w-full ${currentTheme.inputBg} ${currentTheme.inputText} placeholder-gray-500 px-4 py-3 rounded-lg border ${
-                        errors.lastName 
-                          ? 'border-red-500' 
-                          : currentTheme.inputBorder
-                      } focus:border-primary focus:outline-none transition-all duration-300 font-semibold`}
-                      aria-label="Last name"
-                      aria-invalid={errors.lastName ? 'true' : 'false'}
-                    />
-                    {errors.lastName && (
-                      <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
-                    )}
-                  </div>
-                </div>
+                )}
 
                 {/* Email Field */}
                 <div>
