@@ -198,8 +198,8 @@ const WelcomePage = () => {
 
       {/* Edit Profile Modal */}
       {showEditModal && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
-          <div className="bg-dark rounded-3xl p-8 max-w-md w-full border border-white/10 shadow-2xl transform animate-in zoom-in duration-300">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
+          <div className="bg-dark/95 backdrop-blur-xl rounded-3xl p-8 max-w-md w-full border border-white/20 shadow-2xl transform animate-in zoom-in duration-300">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-black text-white flex items-center gap-2">
                 <Edit className="w-6 h-6" style={{ color: currentTheme.accent }} />
@@ -265,8 +265,8 @@ const WelcomePage = () => {
 
       {/* Settings Modal */}
       {showSettingsModal && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
-          <div className="bg-dark rounded-3xl p-8 max-w-md w-full border border-white/10 shadow-2xl transform animate-in zoom-in duration-300">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
+          <div className="bg-dark/95 backdrop-blur-xl rounded-3xl p-8 max-w-md w-full border border-white/20 shadow-2xl transform animate-in zoom-in duration-300">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-black text-white flex items-center gap-2">
                 <Settings className="w-6 h-6" style={{ color: currentTheme.accent }} />

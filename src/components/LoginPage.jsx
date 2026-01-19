@@ -121,14 +121,14 @@ const LoginPage = () => {
         <div className="relative">
           <button
             onClick={() => setShowThemeMenu(!showThemeMenu)}
-            className="bg-dark p-3 rounded-xl shadow-lg hover:bg-dark-light transition-all duration-300 transform hover:scale-105"
-            style={{ borderColor: currentTheme.accent, borderWidth: showThemeMenu ? '2px' : '0px' }}
+            className="bg-white/10 backdrop-blur-md p-3 rounded-xl shadow-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105 border border-white/20"
+            style={{ borderColor: showThemeMenu ? currentTheme.accent : undefined }}
           >
             <Palette className="w-6 h-6 text-white" />
           </button>
           
           {showThemeMenu && (
-            <div className="absolute top-full right-0 mt-2 bg-dark rounded-2xl shadow-2xl p-3 min-w-[200px] border border-white/10">
+            <div className="absolute top-full right-0 mt-2 bg-dark/95 backdrop-blur-xl rounded-2xl shadow-2xl p-3 min-w-[200px] border border-white/20">
               <p className="text-white font-bold text-sm mb-3 px-2">Choose Theme</p>
               <div className="space-y-2">
                 {Object.entries(themes).map(([key, themeData]) => (
@@ -160,7 +160,7 @@ const LoginPage = () => {
       </div>
 
       {/* Main Container */}
-      <div className="w-full max-w-6xl bg-dark rounded-3xl shadow-2xl overflow-hidden">
+      <div className="w-full max-w-6xl bg-dark/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-white/10">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
           
           {/* Left Panel - Image Section */}
