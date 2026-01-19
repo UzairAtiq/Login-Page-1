@@ -301,7 +301,7 @@ const LoginPage = () => {
                         setErrors(prev => ({ ...prev, terms: '' }));
                       }
                     }}
-                    className="mt-1 w-4 h-4 rounded border-gray-700 bg-dark-lighter text-primary focus:ring-2 focus:ring-primary/50 focus:ring-offset-0 cursor-pointer"
+                    className={`mt-1 w-4 h-4 rounded ${currentTheme.inputBorder} ${currentTheme.inputBg} text-primary focus:ring-2 focus:ring-primary/50 focus:ring-offset-0 cursor-pointer`}
                     aria-label="Agree to terms and conditions"
                   />
                   <label htmlFor="terms" className={`${currentTheme.textSecondary} text-sm cursor-pointer font-medium`}>
@@ -368,7 +368,7 @@ const LoginPage = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <button
                     type="button"
-                    className="flex items-center justify-center gap-2 bg-dark-lighter hover:bg-dark-lighter/80 text-white py-3 px-4 rounded-lg border border-gray-700 hover:border-primary transition-all duration-300 transform hover:scale-105 font-bold"
+                    className={`flex items-center justify-center gap-2 ${currentTheme.inputBg} hover:${currentTheme.inputBg}/80 ${currentTheme.inputText} py-3 px-4 rounded-lg border ${currentTheme.inputBorder} hover:border-primary transition-all duration-300 transform hover:scale-105 font-bold`}
                     aria-label="Sign in with Google"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -394,7 +394,7 @@ const LoginPage = () => {
 
                   <button
                     type="button"
-                    className="flex items-center justify-center gap-2 bg-dark-lighter hover:bg-dark-lighter/80 text-white py-3 px-4 rounded-lg border border-gray-700 hover:border-primary transition-all duration-300 transform hover:scale-105 font-bold"
+                    className={`flex items-center justify-center gap-2 ${currentTheme.inputBg} hover:${currentTheme.inputBg}/80 ${currentTheme.inputText} py-3 px-4 rounded-lg border ${currentTheme.inputBorder} hover:border-primary transition-all duration-300 transform hover:scale-105 font-bold`}
                     aria-label="Sign in with Apple"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">

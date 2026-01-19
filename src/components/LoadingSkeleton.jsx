@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const LoadingSkeleton = ({ className = '' }) => {
   return (
@@ -22,8 +23,10 @@ const LoadingSkeleton = ({ className = '' }) => {
 };
 
 export const WelcomePageSkeleton = () => {
+  const { currentTheme } = useTheme();
+  
   return (
-    <div className="min-h-screen relative flex flex-col items-center justify-center p-4 md:p-8 bg-dark">
+    <div className={`min-h-screen relative flex flex-col items-center justify-center p-4 md:p-8 ${currentTheme.isDark ? 'bg-dark' : 'bg-gray-100'}`}>
       {/* Logout Button Skeleton */}
       <div className="w-full max-w-2xl mb-6 flex justify-center relative z-10">
         <LoadingSkeleton className="w-32 h-12 rounded-full" />
@@ -31,7 +34,7 @@ export const WelcomePageSkeleton = () => {
 
       {/* Main Card Skeleton */}
       <div className="relative z-10 w-full max-w-2xl">
-        <div className="bg-dark-lighter/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border border-white/10">
+        <div className={`${currentTheme.cardBg} backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border ${currentTheme.cardBorder}`}>
           {/* Avatar Skeleton */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
@@ -44,7 +47,7 @@ export const WelcomePageSkeleton = () => {
           {/* Cards Skeleton */}
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-dark-lighter/50 rounded-2xl p-6 border border-gray-700/50">
+              <div key={i} className={`${currentTheme.isDark ? 'bg-dark-lighter/50' : 'bg-gray-50'} rounded-2xl p-6 border ${currentTheme.isDark ? 'border-gray-700/50' : 'border-gray-200'}`}>
                 <div className="flex items-center gap-4">
                   <LoadingSkeleton className="w-12 h-12 rounded-xl" />
                   <div className="flex-1">
