@@ -179,21 +179,6 @@ const LoginPage = () => {
                 {slides[currentSlide]}
               </h2>
 
-              {/* Carousel Dots */}
-              <div className="flex justify-center gap-2">
-                {slides.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentSlide(idx)}
-                    className={`h-1 rounded-full transition-all duration-300 ${
-                      idx === currentSlide 
-                        ? 'w-8 bg-white' 
-                        : 'w-1 bg-white/40'
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
             </div>
           </div>
 
