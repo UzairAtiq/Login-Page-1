@@ -34,12 +34,14 @@ const LoginPage = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required';
-    }
+    if (!isLogin) {
+      if (!formData.firstName.trim()) {
+        newErrors.firstName = 'First name is required';
+      }
 
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required';
+      if (!formData.lastName.trim()) {
+        newErrors.lastName = 'Last name is required';
+      }
     }
 
     if (!formData.email.trim()) {
@@ -54,7 +56,7 @@ const LoginPage = () => {
       newErrors.password = 'Password must be at least 6 characters';
     }
 
-    if (!agreeToTerms) {
+    if (!isLogin && !agreeToTerms) {
       newErrors.terms = 'You must agree to the terms and conditions';
     }
 
@@ -90,10 +92,16 @@ const LoginPage = () => {
     // Simulate API call
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
-      showToast('Account created successfully! Welcome aboard! 🎉', 'success');
+      const successMessage = isLogin 
+        ? 'Welcome back! Logged in successfully. 👋' 
+        : 'Account created successfully! Welcome aboard! 🎉';
+      showToast(successMessage, 'success');
       // Navigate to welcome page with user data
       setTimeout(() => {
-        navigate('/welcome', { state: { userData: formData } });
+        const userData = isLogin 
+          ? { ...formData, firstName: formData.email.split('@')[0], lastName: '' } 
+          : formData;
+        navigate('/welcome', { state: { userData } });
       }, 500);
     } catch (error) {
       console.error('Submission error:', error);
