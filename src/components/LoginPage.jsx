@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Eye, EyeOff, ArrowRight, Dribbble, Palette } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useToast } from '../context/ToastContext';
+import PasswordStrengthIndicator from './PasswordStrengthIndicator';
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const { theme, setTheme, currentTheme, themes } = useTheme();
+  const { showToast } = useToast();
   const [showThemeMenu, setShowThemeMenu] = useState(false);
   
   const [formData, setFormData] = useState({
@@ -77,6 +81,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     if (!validateForm()) {
+      showToast('Please fix the errors in the form', 'error');
       return;
     }
 
@@ -85,10 +90,14 @@ const LoginPage = () => {
     // Simulate API call
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
+      showToast('Account created successfully! Welcome aboard! 🎉', 'success');
       // Navigate to welcome page with user data
-      navigate('/welcome', { state: { userData: formData } });
+      setTimeout(() => {
+        navigate('/welcome', { state: { userData: formData } });
+      }, 500);
     } catch (error) {
       console.error('Submission error:', error);
+      showToast('Something went wrong. Please try again.', 'error');
       setIsLoading(false);
     }
   };
@@ -100,7 +109,13 @@ const LoginPage = () => {
   ];
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${currentTheme.bg} flex items-center justify-center p-4 md:p-8`}>
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`min-h-screen bg-gradient-to-br ${currentTheme.bg} flex items-center justify-center p-4 md:p-8`}
+    >
       {/* Theme Selector in top right */}
       <div className="absolute top-6 right-6 md:top-8 md:right-8 z-50">
         <div className="relative">
@@ -298,6 +313,9 @@ const LoginPage = () => {
                     <p className="text-red-500 text-xs mt-1">{errors.password}</p>
                   )}
                 </div>
+                
+                {/* Password Strength Indicator */}
+                <PasswordStrengthIndicator password={formData.password} />
 
                 {/* Terms Checkbox */}
                 <div className="flex items-start gap-3">
@@ -417,7 +435,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

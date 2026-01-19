@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Eye, EyeOff, User, Mail, Lock, LogOut, Edit, Settings, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useToast } from '../context/ToastContext';
+import { WelcomePageSkeleton } from './LoadingSkeleton';
 import backgroundImage from '../assets/New Message Image.jpg';
 
 const WelcomePage = () => {
@@ -9,6 +12,8 @@ const WelcomePage = () => {
   const navigate = useNavigate();
   const userData = location.state?.userData;
   const { theme, setTheme, currentTheme, themes } = useTheme();
+  const { showToast } = useToast();
+  const [isLoading, setIsLoading] = useState(true);
 
   const [showPassword, setShowPassword] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -20,10 +25,23 @@ const WelcomePage = () => {
     email: userData?.email || '',
   });
 
+  // Simulate loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Redirect if no user data
   if (!userData) {
     navigate('/');
     return null;
+  }
+
+  // Show loading skeleton
+  if (isLoading) {
+    return <WelcomePageSkeleton />;
   }
 
   const maskPassword = (password) => {
@@ -31,19 +49,29 @@ const WelcomePage = () => {
   };
 
   const handleLogout = () => {
-    navigate('/');
+    showToast('Logged out successfully. See you soon!', 'info');
+    setTimeout(() => {
+      navigate('/');
+    }, 500);
   };
 
   const handleSaveProfile = () => {
     // Update the userData with edited values
     Object.assign(userData, editedData);
+    showToast('Profile updated successfully!', 'success');
     setShowEditModal(false);
   };
 
 
 
   return (
-    <div className="min-h-screen relative flex flex-col items-center justify-center p-4 md:p-8">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen relative flex flex-col items-center justify-center p-4 md:p-8"
+    >
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
@@ -55,7 +83,7 @@ const WelcomePage = () => {
       <div className="w-full max-w-2xl mb-6 flex justify-center relative z-10">
         <button
           onClick={handleLogout}
-          className={`flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-bold`}
+          className={`flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl font-bold border border-white/20 shadow-lg`}
         >
           <LogOut className="w-5 h-5" />
           Log Out
@@ -288,7 +316,7 @@ const WelcomePage = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
