@@ -152,7 +152,7 @@ const LoginPage = () => {
             {/* Background Image */}
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-80"
-              style={{ backgroundImage: 'url(/mountain-bg.png)' }}
+              style={{ backgroundImage: 'url(/chainsaw-man-bg.JPG)' }}
             />
             
             {/* Gradient Overlay */}
