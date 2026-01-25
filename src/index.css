@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #7C6FDB;
-  --color-primary-dark: #6B5FCA;
-  --color-primary-light: #8D81E5;
-  --color-dark: #1F1F2E;
-  --color-dark-light: #2A2A3E;
-  --color-dark-lighter: #3A3A4E;
+  --color-primary: #DC143C;
+  --color-primary-dark: #B30000;
+  --color-primary-light: #FF1744;
+  --color-dark: #000000;
+  --color-dark-light: #1A1A1A;
+  --color-dark-lighter: #2D2D2D;
   
   --font-family-sans: 'Fredoka', 'Poppins', system-ui, -apple-system, sans-serif;
 }
