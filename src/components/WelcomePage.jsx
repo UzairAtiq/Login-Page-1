@@ -5,7 +5,6 @@ import { Eye, EyeOff, User, Mail, Lock, LogOut, Edit, Moon, Sun, X } from 'lucid
 import { useTheme } from '../context/ThemeContext';
 import { useToast } from '../context/ToastContext';
 import { WelcomePageSkeleton } from './LoadingSkeleton';
-import backgroundImage from '../assets/New Message Image.jpg';
 
 const WelcomePage = () => {
   const location = useLocation();
@@ -74,7 +73,7 @@ const WelcomePage = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{ backgroundImage: 'url(/evangelion.JPG)' }}
       />
       <div className={`absolute inset-0 ${currentTheme.isDark ? 'bg-black/70' : 'bg-white/40'}`} />
       
