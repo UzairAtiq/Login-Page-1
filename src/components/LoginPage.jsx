@@ -154,9 +154,6 @@ const LoginPage = () => {
               className="absolute inset-0 bg-cover bg-center opacity-80"
               style={{ backgroundImage: 'url(/chainsaw-man-bg.JPG)' }}
             />
-            
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom right, ${currentTheme.primarySolid}99, ${currentTheme.primarySolid}66, ${currentTheme.primaryDark}99)` }} />
 
             {/* Content */}
             <div className="relative z-10">
