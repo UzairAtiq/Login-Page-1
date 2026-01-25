@@ -13,10 +13,10 @@ export const useTheme = () => {
 export const themes = {
   light: {
     bg: 'from-gray-100 via-gray-50 to-white',
-    primary: 'from-[#7C6FDB] to-[#6B5FCA]',
-    primarySolid: '#7C6FDB',
-    primaryDark: '#6B5FCA',
-    accent: '#7C6FDB',
+    primary: 'from-[#DC143C] to-[#B30000]',
+    primarySolid: '#DC143C',
+    primaryDark: '#B30000',
+    accent: '#DC143C',
     shadow: 'primary/20',
     name: 'Light',
     isDark: false,
@@ -30,11 +30,11 @@ export const themes = {
     inputText: 'text-gray-900'
   },
   dark: {
-    bg: 'from-[#6B6B85] via-[#5A5A70] to-[#4A4A60]',
-    primary: 'from-[#7C6FDB] to-[#6B5FCA]',
-    primarySolid: '#7C6FDB',
-    primaryDark: '#6B5FCA',
-    accent: '#7C6FDB',
+    bg: 'from-[#1A1A1A] via-[#0D0D0D] to-[#000000]',
+    primary: 'from-[#DC143C] to-[#B30000]',
+    primarySolid: '#DC143C',
+    primaryDark: '#B30000',
+    accent: '#DC143C',
     shadow: 'primary/20',
     name: 'Dark',
     isDark: true,
@@ -42,9 +42,9 @@ export const themes = {
     textPrimary: 'text-white',
     textSecondary: 'text-gray-400',
     cardBg: 'bg-dark/90',
-    cardBorder: 'border-white/10',
+    cardBorder: 'border-red-900/20',
     inputBg: 'bg-dark-lighter',
-    inputBorder: 'border-gray-700',
+    inputBorder: 'border-red-900/30',
     inputText: 'text-white'
   }
 };
