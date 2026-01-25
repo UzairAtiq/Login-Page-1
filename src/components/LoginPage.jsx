@@ -169,10 +169,10 @@ const LoginPage = () => {
               </button>
             </div>
 
-            {/* Tagline */}
+            {/* Bomb Devil Text */}
             <div className="relative z-10 text-center mt-20">
-              <h2 className="text-white text-3xl md:text-4xl font-light mb-8 transition-all duration-500">
-                {slides[currentSlide]}
+              <h2 className="text-white text-5xl md:text-6xl font-bold mb-8 transition-all duration-500" style={{ fontFamily: 'Fredoka' }}>
+                BOMB DEVIL
               </h2>
 
             </div>
@@ -184,7 +184,7 @@ const LoginPage = () => {
               {/* Header */}
               <div className="mb-8">
                 <h1 className={`${currentTheme.textPrimary} text-3xl md:text-4xl font-black mb-2`}>
-                  {isLogin ? 'Welcome back' : 'Create an account'}
+                  {isLogin ? 'Welcome denji kun' : 'Create an account'}
                 </h1>
                 <p className={`${currentTheme.textSecondary} text-sm font-medium`}>
                   {isLogin ? "Don't have an account? " : "Already have an account? "}

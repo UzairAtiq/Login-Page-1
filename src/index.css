@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -9,12 +9,12 @@
   --color-dark-light: #2A2A3E;
   --color-dark-lighter: #3A3A4E;
   
-  --font-family-sans: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-family-sans: 'Fredoka', 'Poppins', system-ui, -apple-system, sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Fredoka', 'Poppins', sans-serif;
 }
 
 /* Input Focus Glow Effect */
